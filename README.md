@@ -14,11 +14,13 @@ para compilar o projeto e rodar o projeto na rede ethereum.
 truffle compile
 truffle migrate
 
-
 Links uteis:
+
 truffle creating a project
 https://truffleframework.com/docs/truffle/getting-started/creating-a-project
+
 truffle compile
 https://truffleframework.com/docs/truffle/getting-started/compiling-contracts
+
 truffle migrate
 https://truffleframework.com/docs/truffle/getting-started/running-migrations
