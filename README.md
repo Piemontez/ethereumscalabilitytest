@@ -1,4 +1,4 @@
-# ethereumscalabilitytest
+# Ethereum Scalability Test
 
 Requisitos:
 O projeto TruffleTest utiliza a linguagem de programação NodeJs, e requer que a mesma estaja intalada no SO.
