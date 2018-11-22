@@ -27,3 +27,11 @@ contract MetaCoin {
     }
 }
 
+/*
+var account_one = "0x1234..."; // an address
+var account_two = "0xabcd..."; // another address
+
+MetaCoin.deployed().then(function(instance) { return instance.getBalance.call(account_one, {from: account_one}); })
+
+MetaCoin.deployed().then(function(instance) { return instance.sendCoin(account_two, 10, {from: account_one}); }).then(function(result) { console.log("Transaction successful!") });
+*/
