@@ -1,10 +1,15 @@
-//const MyStringStore = artifacts.require("MyStringStore");
-//const MetaCoin = artifacts.require("MetaCoin");
+const ForArray = artifacts.require("ForArray");
+const ForMatrix = artifacts.require("ForMatrix");
+
 const BubbleSort = artifacts.require("BubbleSort");
 const QuickSort = artifacts.require("QuickSort");
-const RecursiveMergeSort = artifacts.require("RecursiveMergeSort");
+const MergeSort = artifacts.require("MergeSort");
 
 module.exports = function(deployer) {
+  deployer.deploy(ForArray);
+  deployer.deploy(ForMatrix);
+
   deployer.deploy(BubbleSort);
-  deployer.deploy(RecursiveMergeSort);
+  deployer.deploy(QuickSort);
+  deployer.deploy(MergeSort);
 };

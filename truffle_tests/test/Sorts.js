@@ -1,36 +1,63 @@
+const ForArray = artifacts.require("ForArray");
+const ForMatrix = artifacts.require("ForMatrix");
+
 const BubbleSort = artifacts.require("BubbleSort");
 const QuickSort = artifacts.require("QuickSort");
-const RecursiveMergeSort = artifacts.require("RecursiveMergeSort");
+const MergeSort = artifacts.require("MergeSort");
 
-for (let x = 0; x < 3; x++) {
-  let ammout = Math.pow(10, x);
+let results = [];
+
+for (let x = 1; x < 2; x++) {
+  let ammout = Math.pow(2, x);
+
+  contract("ForArray", accounts => {
+    it("Sort:" + ammout, async () => {
+      const contract = await ForArray.deployed();
+
+      let result = await contract.execute(ammout, { from: accounts[0] });
+      console.log("Gás utilizado:" + (result.receipt||{}).gasUsed||0);
+      console.log(result);
+    });
+  });
+
+  contract("ForMatrix", accounts => {
+    it("Sort:" + ammout, async () => {
+      const contract = await ForMatrix.deployed();
+
+      let result = await contract.execute(ammout, { from: accounts[0] });
+      console.log("Gás utilizado:" + (result.receipt||{}).gasUsed||0);
+    });
+  });
 
   contract("BubbleSort", accounts => {
-    it("Sort:" + ammout + " x 16", async () => {
-      const sort = await BubbleSort.deployed();
-      // let ammoutRs = await sort.makeAndSort.call(ammout, { from: accounts[0] });
-      // assert.equal(ammout,ammoutRs.toNumber(), "Bubble Not executed!");
-      let result = await sort.makeAndSort(ammout, { from: accounts[0] });
-      console.log("Gás utilizado:" + result.receipt.gasUsed);
+    it("Sort:" + ammout, async () => {
+      const contract = await BubbleSort.deployed();
+
+      let result = await contract.makeAndSort(ammout, { from: accounts[0] });
+      console.log("Gás utilizado:" + (result.receipt||{}).gasUsed||0);
     });
   });
 
   contract("QuickSort", accounts => {
     it("Sort:" + ammout, async () => {
       const sort = await QuickSort.deployed();
-      // let ammoutRs = await sort.makeAndSort.call(ammout, { from: accounts[0] });
-      // assert.equal(ammout,ammoutRs.toNumber(), "Bubble Not executed!");
       let result = await sort.makeAndSort(ammout, { from: accounts[0] });
-      console.log("Gás utilizado:" + result.receipt.gasUsed);
+      console.log("Gás utilizado:" + (result.receipt||{}).gasUsed||0);
     });
   });
 
-  // contract("RecursiveMergeSort", accounts => {
-  //   it("Sort:" + ammout, async () => {
-  //     const sort = await RecursiveMergeSort.deployed();
-  //     let ammoutRs = await sort.makeAndSort.call(ammout, { from: accounts[0] });
-  //     assert.equal(ammout,ammoutRs.toNumber(), "Bubble Not executed!");
-  //   });
-  // });
+  contract("MergeSort", accounts => {
+    it("Sort:" + ammout, async () => {
+      const contract = await MergeSort.deployed();
 
+      let result = await contract.makeAndSort(ammout, { from: accounts[0] });
+      console.log("Gás utilizado:" + (result.receipt||{}).gasUsed||0);
+    });
+  });
 }
+
+contract("Conclude results", accounts => {
+  it("Making results:", async () => {
+
+  });
+});
