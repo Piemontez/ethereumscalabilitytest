@@ -1,0 +1,22 @@
+pragma solidity ^0.4.24;
+
+contract StringStore {
+  string public stringStore = "";
+
+  function set(string x) public {
+    stringStore = x;
+  }
+
+  function execute(uint32 amount) public returns(uint32 size) {
+    string newString = "";
+
+    uint32 k;
+    for (k = 0; k < amount; k++) {
+      newString += string(k % 9);
+    }
+
+    StringStore.set(newString);
+
+    return amount;
+  }
+}

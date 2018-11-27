@@ -1,86 +1,110 @@
 const ForArray = artifacts.require("ForArray");
 const ForMatrix = artifacts.require("ForMatrix");
+const StringStore = artifacts.require("StringStore");
 
 const BubbleSort = artifacts.require("BubbleSort");
 const QuickSort = artifacts.require("QuickSort");
 const MergeSort = artifacts.require("MergeSort");
 
-let results = {
-  ForArray: [],
-  ForMatrix: [],
-  BubbleSort: [],
-  MergeSort: [],
-  QuickSort: [],
-};
+/*
+* Função generica, executa a função "execute" do contrato e calcula o tempo de execução[, tempo solicitação e execução]
+*/
+let date, lastDate;
+async function calculateTime(contract, listSize, accounts) {
+  date = new Date().getTime();
 
-for (let x = 1; x < 8; x++) {
-  let ammout = Math.pow(2, x);
+  let call = await contract.execute(listSize, { from: accounts[0] });
+
+  lastDate = new Date().getTime();
+
+  return {
+    call: call,
+    time: lastDate - date,
+  }
+}
+
+/*
+* Adiciona o resultado do teste
+*/
+let results = { ForArray: [], ForMatrix: [], StringStore:[], BubbleSort: [], MergeSort: [], QuickSort: [], };
+
+function addResult(label, size, time, contractCall) {
+  results[label].push({
+    listSize: size,
+    time: time,
+    gasUsed: (contractCall.receipt||{}).gasUsed||0
+  });
+}
+
+/*
+* Testes dos contratos
+*/
+for (let x = 1; x < 2; x++) {
+  let listSize = Math.pow(2, x);
 
   contract("ForArray", accounts => {
-    it("Sort:" + ammout, async () => {
+    it("For Size:" + listSize, async () => {
+
+      //Instancia o contrato
       const contract = await ForArray.deployed();
 
-      let result = await contract.execute(ammout, { from: accounts[0] });
-
-      results.ForArray.push({
-        listSize: ammout,
-        gasUsed: (result.receipt||{}).gasUsed||0
-      });
+      let result = await calculateTime(contract, listSize, accounts);
+      addResult('ForArray', listSize, result.time, result.call);
     });
   });
 
   contract("ForMatrix", accounts => {
-    it("Sort:" + ammout, async () => {
+    it("Double For Size:" + listSize, async () => {
+
+      //Instancia o contrato
       const contract = await ForMatrix.deployed();
 
-      let result = await contract.execute(ammout, { from: accounts[0] });
+      let result = await calculateTime(contract, listSize, accounts);
+      addResult('ForMatrix', listSize, result.time, result.call);
+    });
+  });
 
-      results.ForMatrix.push({
-        listSize: ammout,
-        gasUsed: (result.receipt||{}).gasUsed||0
-      });
+  contract("StringStore", accounts => {
+    it("String Size:" + listSize, async () => {
 
+      //Instancia o contrato
+      const contract = await StringStore.deployed();
+
+      let result = await calculateTime(contract, listSize, accounts);
+      addResult('ForMatrix', listSize, result.time, result.call);
     });
   });
 
   contract("BubbleSort", accounts => {
-    it("Sort:" + ammout, async () => {
+    it("Sort:" + listSize, async () => {
+
+      //Instancia o contrato
       const contract = await BubbleSort.deployed();
 
-      let result = await contract.makeAndSort(ammout, { from: accounts[0] });
-
-      results.BubbleSort.push({
-        listSize: ammout,
-        gasUsed: (result.receipt||{}).gasUsed||0
-      });
-
+      let result = await calculateTime(contract, listSize, accounts);
+      addResult('BubbleSort', listSize, result.time, result.call);
     });
   });
 
   contract("QuickSort", accounts => {
-    it("Sort:" + ammout, async () => {
-      const sort = await QuickSort.deployed();
-      let result = await sort.makeAndSort(ammout, { from: accounts[0] });
+    it("Sort:" + listSize, async () => {
 
-      results.QuickSort.push({
-        listSize: ammout,
-        gasUsed: (result.receipt||{}).gasUsed||0
-      });
+      //Instancia o contrato
+      const contract = await QuickSort.deployed();
 
+      let result = await calculateTime(contract, listSize, accounts);
+      addResult('QuickSort', listSize, result.time, result.call);
     });
   });
 
   contract("MergeSort", accounts => {
-    it("Sort:" + ammout, async () => {
+    it("Sort:" + listSize, async () => {
+
+      //Instancia o contrato
       const contract = await MergeSort.deployed();
 
-      let result = await contract.makeAndSort(ammout, { from: accounts[0] });
-
-      results.MergeSort.push({
-        listSize: ammout,
-        gasUsed: (result.receipt||{}).gasUsed||0
-      });
-
+      let result = await calculateTime(contract, listSize, accounts);
+      addResult('MergeSort', listSize, result.time, result.call);
     });
   });
 }

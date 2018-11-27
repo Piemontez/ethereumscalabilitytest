@@ -66,7 +66,7 @@ contract QuickSort {
     }
 	}
 
-	function makeAndSort(uint32 amount) public pure returns(uint32 size) {
+	function execute(uint32 amount) public pure returns(uint32 size) {
 		uint32[] memory items = new uint32[](amount);
 		uint32 k;
 		for (k = 0; k < amount; k++) { items[k] = uint32(amount-k); }
