@@ -1,6 +1,8 @@
 const ForArray = artifacts.require("ForArray");
 const ForMatrix = artifacts.require("ForMatrix");
+
 const StringStore = artifacts.require("StringStore");
+const Sum = artifacts.require("Sum");
 
 const BubbleSort = artifacts.require("BubbleSort");
 const QuickSort = artifacts.require("QuickSort");
@@ -26,7 +28,7 @@ async function calculateTime(contract, listSize, accounts) {
 /*
 * Adiciona o resultado do teste
 */
-let results = { ForArray: [], ForMatrix: [], StringStore:[], BubbleSort: [], MergeSort: [], QuickSort: [], };
+let results = { ForArray: [], ForMatrix: [], StringStore:[], Sum:[], BubbleSort: [], MergeSort: [], QuickSort: [], };
 
 function addResult(label, size, time, contractCall) {
   results[label].push({
@@ -65,13 +67,24 @@ for (let x = 1; x < 2; x++) {
   });
 
   contract("StringStore", accounts => {
-    it("String Size:" + listSize, async () => {
+    it("New String Size:" + listSize, async () => {
 
       //Instancia o contrato
       const contract = await StringStore.deployed();
 
       let result = await calculateTime(contract, listSize, accounts);
-      addResult('ForMatrix', listSize, result.time, result.call);
+      addResult('StringStore', listSize, result.time, result.call);
+    });
+  });
+
+  contract("Sum", accounts => {
+    it("Sum operations:" + listSize, async () => {
+
+      //Instancia o contrato
+      const contract = await Sum.deployed();
+
+      let result = await calculateTime(contract, listSize, accounts);
+      addResult('Sum', listSize, result.time, result.call);
     });
   });
 

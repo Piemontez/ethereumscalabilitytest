@@ -8,14 +8,15 @@ contract StringStore {
   }
 
   function execute(uint32 amount) public returns(uint32 size) {
-    string newString = "";
+    string memory newString = new string(amount);
+    bytes memory byteString = bytes(newString);
 
     uint32 k;
     for (k = 0; k < amount; k++) {
-      newString += string(k % 9);
+      byteString[k] = byte(48 + (k % 9));
     }
 
-    StringStore.set(newString);
+    StringStore.set(string(byteString));
 
     return amount;
   }
