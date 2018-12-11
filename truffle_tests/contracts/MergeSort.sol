@@ -2,7 +2,7 @@ pragma solidity ^0.4.2;
 
 contract MergeSort {
 
-	function mergeSort (uint32[] memory array) internal pure {
+	function mergeSort (uint32[] memory array) internal {
 	  if(array.length < 2) {
 	    return;
 	  }
@@ -26,7 +26,7 @@ contract MergeSort {
 	  }
 	}
 
-	function mergeArrays(uint32[] memory array, uint32 startL, uint32 stopL, uint32 startR, uint32 stopR) internal pure {
+	function mergeArrays(uint32[] memory array, uint32 startL, uint32 stopL, uint32 startR, uint32 stopR) internal {
 		uint32[] memory right = new uint32[](stopR - startR + 1);
 		uint32[] memory left = new uint32[](stopL - startL + 1);
 
@@ -66,7 +66,7 @@ contract MergeSort {
 	  }
 	}
 
-	function execute(uint32 amount) public pure returns(uint32 size) {
+	function execute(uint32 amount) public returns(uint32 size) {
 		uint32[] memory items = new uint32[](amount);
 		uint32 k;
     for (k = 0; k < amount; k++) { items[k] = uint32(amount-k); }
