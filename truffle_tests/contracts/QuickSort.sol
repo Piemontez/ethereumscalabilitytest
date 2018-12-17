@@ -2,7 +2,7 @@ pragma solidity ^0.4.2;
 
 contract QuickSort {
 
-	function quickSort (uint32[] memory a) internal {
+	function quickSort (uint32[] memory a) internal pure {
 		uint32 i;
 		uint32[] memory s = new uint32[](a.length);
 		uint32 v;
@@ -66,7 +66,7 @@ contract QuickSort {
     }
 	}
 
-	function execute(uint32 amount) public returns(uint32 size) {
+	function execute(uint32 amount) public pure returns(uint32 size) {
 		uint32[] memory items = new uint32[](amount);
 		uint32 k;
 		for (k = 0; k < amount; k++) { items[k] = uint32(amount-k); }
