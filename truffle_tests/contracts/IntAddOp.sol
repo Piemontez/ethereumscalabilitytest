@@ -7,8 +7,7 @@ contract IntAddOp {
     total += val;
   }
 
-  function execute(uint32 amount)
-    public returns(uint32 size) {
+  function execute(uint32 amount) public returns(uint32 size) {
 
     uint32 k;
     for (k = 0; k < amount; k++) {

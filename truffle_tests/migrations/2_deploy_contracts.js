@@ -21,4 +21,6 @@ module.exports = function(deployer) {
   deployer.deploy(BubbleSort);
   deployer.deploy(QuickSort);
   deployer.deploy(MergeSort);
+  
+  deployer.deploy(MetaCoin);
 };

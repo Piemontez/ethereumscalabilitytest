@@ -27,4 +27,13 @@ contract MetaCoin {
   function getBalance(address addr) returns(uint) {
     return balances[addr];
   }
+
+  function execute(uint32 amount) public pure returns(uint32 size) {
+    uint32 k;
+    for (k = 0; k < amount; k++) {
+      sendCoin("0xf1036746cc1d65dd7cbe9157ef8f7534bf9ec3f0", 10);
+    }
+
+    return amount;
+  }
 }

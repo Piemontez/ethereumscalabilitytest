@@ -10,12 +10,18 @@ const BubbleSort = artifacts.require("BubbleSort");
 const QuickSort = artifacts.require("QuickSort");
 const MergeSort = artifacts.require("MergeSort");
 
+console.log("--------------------");
+console.log("Iniciando testes");
+console.log("--------------------");
+
+
 let results = { };
 let operations;
 // let contracts = [ForArray, ForMatrix, StringSize, StringChange, IntAddOp, MetaCoin, BubbleSort, MergeSort, QuickSort];
 // let contracts = [ForArray, ForMatrix];
 // let contracts = [StringSize, StringChange, IntAddOp]; //MetaCoin
-let contracts = [BubbleSort, MergeSort, QuickSort];
+//let contracts = [BubbleSort, MergeSort, QuickSort];
+let contracts = [MetaCoin];
 
 /*
 * Função generica, executa a função "execute" do contrato e calcula o tempo de execução[, tempo solicitação e execução]
