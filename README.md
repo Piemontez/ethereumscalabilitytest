@@ -9,10 +9,11 @@ OU
 yarn global add truffle ganache-cli
 ```
 Para executar os teste truffle, no shell, va até a pasta truffle_tests e execute os comandos abaixo, 
-para compilar o projeto e rodar o projeto na rede ethereum.
+para compilar o projeto e rodar o projeto na rede ethereum e por fim o camando truffle test.
 ```
 truffle compile
 truffle migrate
+truffle test
 ```
 ### Links uteis:
 
