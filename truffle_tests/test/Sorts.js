@@ -1,9 +1,9 @@
-const ForArray = artifacts.require("ForArray");
-const ForMatrix = artifacts.require("ForMatrix");
+const SingleLoop = artifacts.require("SingleLoop");
+const DualLoop = artifacts.require("DualLoop");
 
-const StringSize = artifacts.require("StringSize");
-const StringChange = artifacts.require("StringChange");
-const IntAddOp = artifacts.require("IntAddOp");
+const StoreInt = artifacts.require("StoreInt");
+const StoreChar = artifacts.require("StoreChar");
+const StoreString = artifacts.require("StoreString");
 const MetaCoin = artifacts.require("MetaCoin");
 
 const BubbleSort = artifacts.require("BubbleSort");
@@ -17,11 +17,8 @@ console.log("--------------------");
 
 let results = { };
 let operations;
-// let contracts = [ForArray, ForMatrix, StringSize, StringChange, IntAddOp, MetaCoin, BubbleSort, MergeSort, QuickSort];
-// let contracts = [ForArray, ForMatrix];
-// let contracts = [StringSize, StringChange, IntAddOp]; //MetaCoin
-//let contracts = [BubbleSort, MergeSort, QuickSort];
-let contracts = [MetaCoin];
+ let contracts = [SingleLoop, DualLoop, StoreInt, StoreChar, StoreString, MetaCoin, BubbleSort, MergeSort, QuickSort];
+//let contracts = [MetaCoin];
 
 /*
 * Função generica, executa a função "execute" do contrato e calcula o tempo de execução[, tempo solicitação e execução]

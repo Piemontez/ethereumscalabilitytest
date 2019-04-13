@@ -1,6 +1,6 @@
 pragma solidity ^0.4.24;
 
-contract IntAddOp {
+contract StoreInt {
   uint256 public total = 0;
 
   function add(uint256 val) public {

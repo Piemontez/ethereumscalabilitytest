@@ -1,9 +1,9 @@
-const ForArray = artifacts.require("ForArray");
-const ForMatrix = artifacts.require("ForMatrix");
+const SingleLoop = artifacts.require("SingleLoop");
+const DualLoop = artifacts.require("DualLoop");
 
-const StringSize = artifacts.require("StringSize");
-const StringChange = artifacts.require("StringChange");
-const IntAddOp = artifacts.require("IntAddOp");
+const StoreChar = artifacts.require("StoreChar");
+const StoreString = artifacts.require("StoreString");
+const StoreInt = artifacts.require("StoreInt");
 const MetaCoin = artifacts.require("MetaCoin");
 
 const BubbleSort = artifacts.require("BubbleSort");
@@ -11,12 +11,12 @@ const QuickSort = artifacts.require("QuickSort");
 const MergeSort = artifacts.require("MergeSort");
 
 module.exports = function(deployer) {
-  deployer.deploy(ForArray);
-  deployer.deploy(ForMatrix);
+  deployer.deploy(SingleLoop);
+  deployer.deploy(DualLoop);
 
-  deployer.deploy(StringSize);
-  deployer.deploy(StringChange);
-  deployer.deploy(IntAddOp);
+  deployer.deploy(StoreChar);
+  deployer.deploy(StoreString);
+  deployer.deploy(StoreInt);
 
   deployer.deploy(BubbleSort);
   deployer.deploy(QuickSort);

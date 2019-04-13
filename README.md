@@ -43,7 +43,7 @@ truffle test
 ### Observações:
 
 Lembre-se de iniciar a conexão com a rede Ethereum antes de executar os teste. Não esqueça que a rede pública Ethereum cobra por sua utilização. 
-Como alternativa a rede pública, é possivel utilizar uma rede privada ganache. Para iniciá-la utilize o comando 'ganache-cli'.
+Como alternativa a rede pública, é possivel utilizar uma rede privada Ganache. Para iniciá-la, utilize o comando 'ganache-cli'.
 
 
 ### Links uteis:

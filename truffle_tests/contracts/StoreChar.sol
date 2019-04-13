@@ -1,6 +1,6 @@
 pragma solidity ^0.4.24;
 
-contract StringSize {
+contract StoreChar {
   string public stStore = "";
 
   function set(string x) public {
