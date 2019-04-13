@@ -25,7 +25,7 @@ Sorting Algorithms:
 
 
 ### Instalação:
-Este projeto utiliza a linguagem de programação NodeJs, e requer que a mesma estaja intalada no SO para rodar os testes.
+Este projeto utiliza a linguagem de programação NodeJs, e requer que a mesma estaja intalada para rodar os testes.
 Após a instalação do NodeJs, adicione de forma global os 2 pacotes abaixo:
 ```
 npm install -g truffle ganache-cli
