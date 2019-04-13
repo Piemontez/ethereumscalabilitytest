@@ -5,21 +5,18 @@ Este projeto, simula varios testes, de diferentes tipos de contratos inteligente
 Neste projeto existem 9 tipos de contratos inteligentes, que buscam testar o desempenho e o custo de gás na rede Ethereum. Eles estão divididos em 3 categorias:  Linear Operations, Data Manipulation, Sorting Algorithms.
 
 Linear Operations:
-
 	SingleLoop.sol
 	DualLoop.sol
 
 Data Manipulation:
-
-StoreInt.sol
-StoreChar.sol
-StoreString.sol
+	StoreInt.sol
+	StoreChar.sol
+	StoreString.sol
 
 Sorting Algorithms:
-
-BubbleSort.sol  
-QuickSort.sol  
-MergeSort.sol  
+	BubbleSort.sol  
+	QuickSort.sol  
+	MergeSort.sol  
 
 ### Artigo:
 
